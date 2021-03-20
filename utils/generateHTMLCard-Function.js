@@ -1,5 +1,3 @@
-const Engineer = require('./Engineer-SubClass');
-
 const generateHTMLCard = function (response) {
     let role;
     let unquieAttr;

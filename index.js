@@ -1,7 +1,3 @@
-const Manager = require('./lib/Manager-SubClass');
-const Engineer = require('./lib/Engineer-SubClass');
-const Intern = require('./lib/Intern-SubClass');
-
 function init(){
     let moreEnteries = true;
     const htmlCards = [];
@@ -10,7 +6,7 @@ function init(){
         //get info based on role
         //generate HTML card
         //store card in array
-        htmlCards.push(generateHTMLCard(newTeamMember()));
+        htmlCards.push(generateHTMLCard(getNewTeamMemberData()));
          //ask if more enteries
         moreEnteries = checkIfDone();
     }

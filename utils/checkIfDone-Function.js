@@ -16,3 +16,5 @@ const checkIfDone = function(){
 let check = checkIfDone();
 
 //how to not set check until the inuirer promise has resolved?
+
+module.exports = checkIfDone;
