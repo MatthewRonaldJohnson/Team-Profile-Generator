@@ -45,22 +45,43 @@ const uniqueQuestions = [
     }
 ]
 
-function getNewTeamMemberData() {
-    inquirer
+async function getNewTeamMemberData() {
+    let output = 'nothing';
+    await inquirer
         .prompt(genericQuestions)
         .then((response) => {
             switch (response.role) {
                 case 'Manager':
+                    inquirer
+                        .prompt(uniqueQuestions[0])
+                        .then((officeNumber) => {
+                            output= new Manager(response.name, response.id, response.email, officeNumber.officeNumber)
+                        })
                     break;
                 case 'Engineer':
+                    inquirer
+                        .prompt(uniqueQuestions[0])
+                        .then((github) => {
+                            output = new Engineer(response.name, response.id, response.email, github.github)
+                        })
                     break;
                 case 'Intern':
+                    inquirer
+                        .prompt(uniqueQuestions[0])
+                        .then((school) => {
+                            output = new Intern(response.name, response.id, response.email, school.school)
+                        })
                     break;
             }
+
         })
+    console.log(output + 'logged')
+    return output;
 }
 
-module.exports = getNewTeamMemberData;
+console.log(getNewTeamMemberData());
+
+//module.exports = getNewTeamMemberData;
 
 //how to escape out of the then tree with response data? 
 //should return a Manager, Engineer, or Intern object 

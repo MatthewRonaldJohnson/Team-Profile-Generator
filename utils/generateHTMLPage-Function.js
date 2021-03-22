@@ -32,50 +32,6 @@ const generateHTMLPage = function (htmlCards) {
     );
 }
 
-htmlCards = [
-    `<section class="card">
-    <div class="card-header">
-        <h3 class="card-name">test</h3>
-        <h4 class="card-role">test role</h4>
-    </div>
-    <div class="card-body">
-        <ul class="card-contents">
-            <li class="card-info">ID: 01</li>
-            <li class="card-info"><a href="mailto:email">Email: email</a></li>
-            <li class="card-info">unique</li>
-        </ul>
-    </div>
-</section>
-    `, `<section class="card">
-    <div class="card-header">
-        <h3 class="card-name">test</h3>
-        <h4 class="card-role">test role</h4>
-    </div>
-    <div class="card-body">
-        <ul class="card-contents">
-            <li class="card-info">ID: 01</li>
-            <li class="card-info"><a href="mailto:email">Email: email</a></li>
-            <li class="card-info">unique</li>
-        </ul>
-    </div>
-</section>
-    `, `<section class="card">
-    <div class="card-header">
-        <h3 class="card-name">test</h3>
-        <h4 class="card-role">test role</h4>
-    </div>
-    <div class="card-body">
-        <ul class="card-contents">
-            <li class="card-info">ID: 01</li>
-            <li class="card-info"><a href="mailto:email">Email: email</a></li>
-            <li class="card-info">unique</li>
-        </ul>
-    </div>
-</section>
-    `
-]
-
-generateHTMLPage(htmlCards);
 
 //need to get these sections of appending to file to add in order
 //how to do without christmas tree?
