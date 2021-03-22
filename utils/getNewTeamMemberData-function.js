@@ -4,7 +4,7 @@ const Intern = require('../lib/Intern-SubClass');
 const inquirer = require('inquirer');
 const generateHTMLCard = require('./generateHTMLCard-Function');
 
-const genericQuestions = [
+const questions = [
     {
         type: 'list',
         message: 'Enter the employees Role:',
@@ -26,57 +26,50 @@ const genericQuestions = [
         message: 'Enter the employees Email:',
         name: 'email'
     },
-]
-
-const uniqueQuestions = [
     {
         type: 'input',
         message: "Enter the manager's office number:",
-        name: 'officeNumber'
+        name: 'officeNumber',
+        when: data => data.role === 'Manager'
     },
     {
         type: 'input',
         message: "Enter the engineer's github username:",
-        name: 'github'
+        name: 'github',
+        when: data => data.role === 'Engineer'
     },
     {
         type: 'input',
         message: "Enter the intern's school:",
-        name: 'school'
+        name: 'school',
+        when: data => data.role === 'Intern'
     }
 ]
 
-function getNewTeamMemberData() {
-    inquirer
-        .prompt(genericQuestions)
+
+async function getNewTeamMemberData() {
+    let teamMember;
+    await inquirer
+        .prompt(questions)
         .then((response) => {
+            //make response into employee obj
             switch (response.role) {
                 case 'Manager':
-                    inquirer
-                        .prompt(uniqueQuestions[0])
-                        .then((officeNumber) =>{
-                            generateHTMLCard(new Manager(response.name, response.id, response.email, officeNumber.officeNumber))
-                        })
+                    teamMember = new Manager(response.name, response.id, response.email, response.officeNumber);
                     break;
                 case 'Engineer':
-                    inquirer
-                        .prompt(uniqueQuestions[1])
-                        .then((github) =>{
-                            generateHTMLCard(new Engineer(response.name, response.id, response.email, github.github))
-                        })
+                    teamMember = new Engineer(response.name, response.id, response.email, response.github);
                     break;
                 case 'Intern':
-                    inquirer
-                        .prompt(uniqueQuestions[1])
-                        .then((school) =>{
-                            generateHTMLCard(new Engineer(response.name, response.id, response.email, school.school))
-                        })
+                    teamMember = new Intern(response.name, response.id, response.email, response.school);
                     break;
             }
         })
+    return teamMember;
 }
 
-module.exports = getNewTeamMemberData;
+const logWhenDone = async function() {
+    console.log(await getNewTeamMemberData());
+}()
 
-//how to escape out of the then tree with response data? 
-//should return a Manager, Engineer, or Intern object 
+module.exports = getNewTeamMemberData;

@@ -2,11 +2,11 @@ const getNewTeamMemberData = require('./utils/getNewTeamMemberData-function')
 const checkIfDone = require('./utils/checkIfDone-Function')
 const generateHTMLPage = require('./utils/generateHTMLPage-Function')
 
-function init(){
+async function init(){
     let moreEnteries = true;
     const htmlCards = [];
     while(moreEnteries){
-        htmlCards.push(getNewTeamMemberData());
+        await htmlCards.push(getNewTeamMemberData());
         moreEnteries = checkIfDone();
         console.log('still going')
     }
