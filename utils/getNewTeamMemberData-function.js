@@ -2,7 +2,6 @@ const Manager = require('../lib/Manager-SubClass');
 const Engineer = require('../lib/Engineer-SubClass');
 const Intern = require('../lib/Intern-SubClass');
 const inquirer = require('inquirer');
-const generateHTMLCard = require('./generateHTMLCard-Function');
 
 const questions = [
     {
@@ -67,9 +66,5 @@ async function getNewTeamMemberData() {
         })
     return teamMember;
 }
-
-const logWhenDone = async function() {
-    console.log(await getNewTeamMemberData());
-}()
 
 module.exports = getNewTeamMemberData;
