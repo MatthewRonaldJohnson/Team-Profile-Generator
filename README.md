@@ -5,6 +5,7 @@
 
 ## Table of Contents
 [Description](#Description)  
+[Walkthrough](#Walkthrough)  
 [Installation Instructions](#Installation-Instructions)  
 [Usage Information](#Usage-Information)  
 [Testing Instructions](#Testing-Instructions)  
@@ -13,6 +14,10 @@
 ## Description
 
 This program allows the user to quickly generate an HTML page that stores basic info about their team members.
+
+## Walkthrough
+
+[Click here to checkout a video walkthrough of this program.](https://www.youtube.com/watch?v=QpRAxkPFv8M)
         
 ## Installation Instructions
 
