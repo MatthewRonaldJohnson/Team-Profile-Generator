@@ -1,20 +1,13 @@
 const inquirer = require('inquirer');
 
-const checkIfDone = function(){
-    inquirer   
+const checkIfDone = async function () {
+    const answer = await inquirer
         .prompt({
             type: 'confirm',
             message: 'Do you want to add another Team Member?',
             name: 'moreEnteries'
         })
-        .then((answer) =>{
-            console.log(answer);
-            return answer.moreEnteries;
-        })
+    return answer.moreEnteries
 }
-
-let check = checkIfDone();
-
-//how to not set check until the inuirer promise has resolved?
 
 module.exports = checkIfDone;

@@ -1,16 +1,19 @@
 const getNewTeamMemberData = require('./utils/getNewTeamMemberData-function')
-const generateHTMLCard = require('./utils/generateHTMLCard-Function')
 const checkIfDone = require('./utils/checkIfDone-Function')
-const generateHTMLPage = require('./utils/generateHTMLPage-Function')
+//const generateHTMLPage = require('./utils/generateHTMLPage-Function')
+const generateHTMLCard = require('./utils/generateHTMLCard-Function')
 
-function init(){
+async function init(){
     let moreEnteries = true;
     const htmlCards = [];
     while(moreEnteries){
-        htmlCards.push(generateHTMLCard(getNewTeamMemberData()));
-        moreEnteries = checkIfDone();
+        const newTeamMember = await getNewTeamMemberData();
+        const newTeamMemberCard = generateHTMLCard(newTeamMember)
+        htmlCards.push(newTeamMemberCard);
+        moreEnteries = await checkIfDone();
     }
-    generateHTMLPage(htmlCards);
+    //generateHTMLPage(htmlCards);
+    console.log(htmlCards)
 }
 
 init();

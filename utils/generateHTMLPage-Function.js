@@ -18,13 +18,14 @@ const endHTML = `    </main>
 </body>
 </html>`
 
-const generateHTMLPage = function (htmlCards) {
-    fs.writeFile('../dist/index.html', starterHTML, (err) =>
+const generateHTMLPage = async function (htmlCards) {
+    fs.writeFile('../dist/index.html', starterHTML, function (err) {
         err ? console.error(err) : console.log('Created HTML file')
+    }
     );
     htmlCards.forEach(card => {
-        fs.appendFile('../dist/index.html', card, (err) =>
-            err ? console.error(err) : console.log('Card Added')
+        fs.appendFile('../dist/index.html', card, function (err){
+            err ? console.error(err) : console.log('Card Added')}
         );
     });
     fs.appendFile('../dist/index.html', endHTML, (err) =>
