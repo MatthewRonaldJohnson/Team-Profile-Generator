@@ -13,7 +13,8 @@
 
 ## Description
 
-This program allows the user to quickly generate an HTML page that stores basic info about their team members.
+This program allows the user to quickly generate an HTML page that stores basic info about their team members.  
+Inside the dist folder you will find a sample output using this program.
 
 ## Walkthrough
 
