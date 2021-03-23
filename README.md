@@ -17,7 +17,7 @@ This program allows the user to quickly generate an HTML page that stores basic 
 
 ## Walkthrough
 
-[Click here to checkout a video walkthrough of this program.](https://www.youtube.com/watch?v=QpRAxkPFv8M)
+<a href='https://www.youtube.com/watch?v=QpRAxkPFv8M' target='_blank'>Click here to checkout a video walkthrough of this program.</a>
         
 ## Installation Instructions
 
